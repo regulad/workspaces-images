@@ -14,6 +14,7 @@ SCRCPY_FPS=${SCRCPY_FPS:-"30"}
 SCRCPY_SHOW_CONSOLE=${SCRCPY_SHOW_CONSOLE:-"0"}
 REDROID_DISABLE_AUTOSTART=${REDROID_DISABLE_AUTOSTART:-"0"}
 REDROID_DISABLE_HOST_CHECKS=${REDROID_DISABLE_HOST_CHECKS:-"1"}
+ADB_DEVICE=${ADB_DEVICE:-"localhost:5555"}
 
 #ICON_ERROR="/usr/share/icons/ubuntu-mono-dark/status/22/system-devices-panel-alert.svg"
 
@@ -38,7 +39,7 @@ REDROID_DISABLE_HOST_CHECKS=${REDROID_DISABLE_HOST_CHECKS:-"1"}
 
 function connect_adb() {
   echo "Attempting ADB connection..."
-  adb connect "$DEVICE_IP":"$DEVICE_ADB_PORT" | grep "connected"  # handles "connected to" and "already connected to"
+  adb connect "$ADB_DEVICE" | grep "connected"  # handles "connected to" and "already connected to"
 }
 
 start_android() {
@@ -66,9 +67,9 @@ start_android() {
 start_scrcpy() {
 
   if [ "$SCRCPY_SHOW_CONSOLE" == "1" ]; then
-    xfce4-terminal --hide-menubar --command "bash -c \"scrcpy --audio-codec=aac -s localhost:5555 --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS} \"" &
+    xfce4-terminal --hide-menubar --command "bash -c \"scrcpy --audio-codec=aac -s \"$ADB_DEVICE\" --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS} \"" &
   else
-    scrcpy --audio-codec=aac -s localhost:5555 --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS}
+    scrcpy --audio-codec=aac -s "$ADB_DEVICE" --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS}
   fi
 
   wait_for_process $SCRCPY_PGREP
