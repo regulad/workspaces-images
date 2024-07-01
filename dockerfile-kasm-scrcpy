@@ -36,7 +36,7 @@ WORKDIR $HOME
 RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 
 # customization
-RUN mkdir -p $HOME/.vnc
+RUN mkdir -p $HOME/.vnc && chown -R 1000:1000 $HOME/.vnc
 COPY --chown=1000:1000 ./src/ubuntu/install/scrcpy/kasmvnc-template.yaml $HOME/.vnc/kasmvnc-template.yaml
 
 USER 1000
