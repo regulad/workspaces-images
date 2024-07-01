@@ -8,8 +8,8 @@ SCRCPY_PGREP="scrcpy"
 #ANDROID_VERSION=${ANDROID_VERSION:-"13.0.0"}
 #REDROID_GPU_GUEST_MODE=${REDROID_GPU_GUEST_MODE:-"guest"}
 SCRCPY_FPS=${SCRCPY_FPS:-"30"}
-#REDROID_WIDTH=${REDROID_WIDTH:-"720"}
-#REDROID_HEIGHT=${REDROID_HEIGHT:-"1280"}
+SCRCPY_WIDTH=${SCRCPY_WIDTH:-"720"}
+SCRCPY_HEIGHT=${SCRCPY_HEIGHT:-"1280"}
 #REDROID_DPI=${REDROID_DPI:-"320"}
 SCRCPY_SHOW_CONSOLE=${SCRCPY_SHOW_CONSOLE:-"0"}
 REDROID_DISABLE_AUTOSTART=${REDROID_DISABLE_AUTOSTART:-"0"}
@@ -52,8 +52,8 @@ start_android() {
 #    redroid/redroid:${ANDROID_VERSION}-latest \
 #    androidboot.redroid_gpu_mode=${REDROID_GPU_GUEST_MODE} \
 #    androidboot.redroid_fps=${SCRCPY_FPS} \
-#    androidboot.redroid_width=${REDROID_WIDTH} \
-#    androidboot.redroid_height=${REDROID_HEIGHT} \
+#    androidboot.redroid_width=${SCRCPY_WIDTH} \
+#    androidboot.redroid_height=${SCRCPY_HEIGHT} \
 #    androidboot.redroid_dpi=${REDROID_DPI}
     echo "Connecting to ADB device..."
     while ! connect_adb;
@@ -65,11 +65,18 @@ start_android() {
 }
 
 start_scrcpy() {
+  # https://github.com/Genymobile/scrcpy
+  # https://gist.github.com/regulad/047f1bbe20614681a263caaa16dee661
+  window_x=$(($SCRCPY_WIDTH / 2))
+  window_y=$(($SCRCPY_HEIGHT / 2))
+  scrcpy_command="scrcpy --audio-codec=aac -s \"$ADB_DEVICE\" --window-borderless --window-width=${SCRCPY_WIDTH} --window-height=${SCRCPY_HEIGHT} --window-x=${window_x} --window-y=${window_y} --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS}"
+
+  start_android  # Ensure that the device is connected, reconnect if necessary
 
   if [ "$SCRCPY_SHOW_CONSOLE" == "1" ]; then
-    xfce4-terminal --hide-menubar --command "bash -c \"scrcpy --audio-codec=aac -s \"$ADB_DEVICE\" --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS} \"" &
+    xfce4-terminal --hide-menubar --command "bash -c \"$scrcpy_command\"" &
   else
-    scrcpy --audio-codec=aac -s "$ADB_DEVICE" --shortcut-mod=lalt --print-fps --max-fps=${SCRCPY_FPS}
+    eval "$scrcpy_command"
   fi
 
   wait_for_process $SCRCPY_PGREP
@@ -109,6 +116,22 @@ kasm_startup() {
 
         echo "Entering process startup loop"
         set +x
+
+        # before we launch, we need to configure the VNC server
+        # https://kasmweb.com/kasmvnc/docs/master/configuration.html#default-configurations
+
+        # set the width (yaml desktop.resolution.width)
+        # set the height (yaml desktop.resolution.height)
+        # set allow_resize false (yaml desktop.allow_resize)
+
+        # global config: /etc/kasmvnc/kasmvnc.yaml
+        # user config: ~/.vnc/kasmvnc.yaml
+
+        # Write the yaml content to the file
+        envsubst < ~/.vnc/kasmvnc-template.yaml > ~/.vnc/kasmvnc.yaml
+
+        # do we need to restart the vnc server now so it respects our new settings? idk
+
         while true
         do
             if ! pgrep -x $DOCKER_PGREP > /dev/null
