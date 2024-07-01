@@ -478,7 +478,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          file: "{context}/${{ matrix.dockerfile }}"
+          file: ${{ matrix.dockerfile }}
           cache-from: type=gha
           build-args: "BASE_IMAGE=\"${{ matrix.base }}\""
           cache-to: type=gha,mode=max
