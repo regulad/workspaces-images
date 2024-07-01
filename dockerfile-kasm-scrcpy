@@ -10,6 +10,8 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
+# overwrite the vnc_startup.sh script
+COPY ./src/ubuntu/install/scrcpy/vnc_startup.sh $STARTUPDIR/vnc_startup.sh
 
 COPY ./src/ubuntu/install/scrcpy $INST_SCRIPTS/scrcpy/
 RUN bash $INST_SCRIPTS/scrcpy/install_scrcpy.sh  && rm -rf $INST_SCRIPTS/scrcpy/
