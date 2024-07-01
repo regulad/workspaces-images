@@ -481,7 +481,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           file: ${{ matrix.dockerfile }}
           cache-from: type=gha
-          build-args: "BASE_IMAGE=${{ matrix.base }}#BASE_TAG=develop"
+          build-args: |
+            BASE_IMAGE=${{ matrix.base }}
+            BASE_TAG=develop
           cache-to: type=gha,mode=max
           platforms: ${{ matrix.only86 && 'linux/amd64' || 'linux/amd64,linux/arm64' }}
 
