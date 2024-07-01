@@ -5,4 +5,5 @@ desktop:
   allow_resize: false
 runtime_configuration:
   allow_client_to_override_kasm_server_settings: false
+encoding:
   max_frame_rate: ${SCRCPY_FPS}

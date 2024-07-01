@@ -116,22 +116,6 @@ kasm_startup() {
 
         echo "Entering process startup loop"
         set +x
-
-        # before we launch, we need to configure the VNC server
-        # https://kasmweb.com/kasmvnc/docs/master/configuration.html#default-configurations
-
-        # set the width (yaml desktop.resolution.width)
-        # set the height (yaml desktop.resolution.height)
-        # set allow_resize false (yaml desktop.allow_resize)
-
-        # global config: /etc/kasmvnc/kasmvnc.yaml
-        # user config: ~/.vnc/kasmvnc.yaml
-
-        # Write the yaml content to the file
-        envsubst < ~/.vnc/kasmvnc-template.yaml > ~/.vnc/kasmvnc.yaml
-
-        # do we need to restart the vnc server now so it respects our new settings? idk
-
         while true
         do
             if ! pgrep -x $DOCKER_PGREP > /dev/null
