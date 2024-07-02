@@ -21,9 +21,10 @@ RUN chmod +x $STARTUPDIR/custom_startup.sh
 RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
 # customize the vnc server
-RUN rm -rf /usr/share/kasmvnc/www
+RUN rm -f /usr/share/kasmvnc/www/index.html  # a symlink to vnc.html by default, maybe doesn't exist so -f
 COPY --chown=0:0 ./src/ubuntu/install/scrcpy/www /usr/share/kasmvnc/www
 # injects novnc-nofrills straight into where the regular novnc client lives
+# kasmvnc hard-fixes the directory to here
 
 # Update the desktop environment to be optimized for a single application
 RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
