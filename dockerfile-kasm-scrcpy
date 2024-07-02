@@ -20,6 +20,10 @@ COPY ./src/ubuntu/install/scrcpy/custom_startup.sh $STARTUPDIR/custom_startup.sh
 RUN chmod +x $STARTUPDIR/custom_startup.sh
 RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
+# customize the vnc server
+RUN rm -rf /usr/share/kasmvnc/www
+COPY --chown=0:0 ./src/ubuntu/install/scrcpy/www /usr/share/kasmvnc/www
+# injects novnc-nofrills straight into where the regular novnc client lives
 
 # Update the desktop environment to be optimized for a single application
 RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
@@ -38,6 +42,6 @@ RUN mkdir -p $HOME && chown -R 1000:0 $HOME
 # customization
 RUN mkdir -p $HOME/.vnc && chown -R 1000:1000 $HOME/.vnc
 COPY --chown=1000:1000 ./src/ubuntu/install/scrcpy/kasmvnc-template.yaml $HOME/.vnc/kasmvnc-template.yaml
-COPY --chown=1000:1000 ./src/ubuntu/install/scrcpy/www $HOME/www
+#COPY --chown=1000:1000 ./src/ubuntu/install/scrcpy/www $HOME/www
 
 USER 1000

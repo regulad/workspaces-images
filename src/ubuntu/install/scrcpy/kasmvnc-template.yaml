@@ -7,7 +7,7 @@ runtime_configuration:
   allow_client_to_override_kasm_server_settings: false
 encoding:
   max_frame_rate: ${SCRCPY_FPS}
-server:
-  http:
-    # https://github.com/regulad/novnc-nofrills
-    httpd_directory: ${HOME}/www
+#server: # not always respected
+#  http:
+#    # https://github.com/regulad/novnc-nofrills
+#    httpd_directory: ${HOME}/www
