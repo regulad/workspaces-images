@@ -2,12 +2,20 @@ desktop:
   resolution:
     width: ${SCRCPY_WIDTH}
     height: ${SCRCPY_HEIGHT}
+  pixel_depth: 24
   allow_resize: false
 runtime_configuration:
   allow_client_to_override_kasm_server_settings: false
+  allow_override_standard_vnc_server_settings: false
 encoding:
   max_frame_rate: ${SCRCPY_FPS}
-#server: # not always respected
-#  http:
-#    # https://github.com/regulad/novnc-nofrills
-#    httpd_directory: ${HOME}/www
+  video_encoding_mode:
+    max_resolution:
+      width: ${SCRCPY_WIDTH}
+      height: ${SCRCPY_HEIGHT}
+network:
+  ssl:
+    require_ssl: false  # iffy (ssl reads die)
+server:
+  http:
+    httpd_directory: /usr/share/kasmvnc/www  # this is not respected
