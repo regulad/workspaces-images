@@ -112,6 +112,11 @@ jobs:
             base: core-ubuntu-focal
             dockerfile: dockerfile-kasm-scrcpy
             only86: false
+          - name: ws-scrcpy
+            singleapp: false
+            base: core-ubuntu-focal
+            dockerfile: dockerfile-kasm-ws-scrcpy
+            only86: false
           - name: remmina
             singleapp: true
             base: core-ubuntu-focal
