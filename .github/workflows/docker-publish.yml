@@ -28,86 +28,86 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: audacity
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-audacity
-            only86: false
-          - name: chromium
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-chromium
-            only86: false
-          - name: deluge
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-deluge
-            only86: false
-          - name: doom
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-doom
-            only86: false
-          - name: filezilla
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-filezilla
-            only86: false
-          - name: firefox
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-firefox
-            only86: false
-          - name: gimp
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-gimp
-            only86: false
-          - name: inkscape
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-inkscape
-            only86: false
-          - name: java-dev
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-java-dev
-            only86: false
-          - name: libre-office
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-libre-office
-            only86: false
-          - name: nessus
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-nessus
-            only86: false
-          - name: opensuse-15-desktop
-            singleapp: false
-            base: core-opensuse-15
-            dockerfile: dockerfile-kasm-opensuse-15-desktop
-            only86: false
-          - name: oracle-8-desktop
-            singleapp: false
-            base: core-oracle-8
-            dockerfile: dockerfile-kasm-oracle-8-desktop
-            only86: false
-          - name: pinta
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-pinta
-            only86: false
-          - name: qbittorrent
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-qbittorrent
-            only86: false
-          - name: redroid
-            singleapp: false
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-redroid
-            only86: false
+#          - name: audacity
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-audacity
+#            only86: false
+#          - name: chromium
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-chromium
+#            only86: false
+#          - name: deluge
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-deluge
+#            only86: false
+#          - name: doom
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-doom
+#            only86: false
+#          - name: filezilla
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-filezilla
+#            only86: false
+#          - name: firefox
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-firefox
+#            only86: false
+#          - name: gimp
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-gimp
+#            only86: false
+#          - name: inkscape
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-inkscape
+#            only86: false
+#          - name: java-dev
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-java-dev
+#            only86: false
+#          - name: libre-office
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-libre-office
+#            only86: false
+#          - name: nessus
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-nessus
+#            only86: false
+#          - name: opensuse-15-desktop
+#            singleapp: false
+#            base: core-opensuse-15
+#            dockerfile: dockerfile-kasm-opensuse-15-desktop
+#            only86: false
+#          - name: oracle-8-desktop
+#            singleapp: false
+#            base: core-oracle-8
+#            dockerfile: dockerfile-kasm-oracle-8-desktop
+#            only86: false
+#          - name: pinta
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-pinta
+#            only86: false
+#          - name: qbittorrent
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-qbittorrent
+#            only86: false
+#          - name: redroid
+#            singleapp: false
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-redroid
+#            only86: false
           - name: scrcpy
             singleapp: false
             base: core-ubuntu-focal
@@ -118,315 +118,320 @@ jobs:
             base: core-ubuntu-focal
             dockerfile: dockerfile-kasm-ws-scrcpy
             only86: false
-          - name: remmina
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-remmina
-            only86: false
-          - name: spiderfoot
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-spiderfoot
-            only86: false
-          - name: sublime-text
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-sublime-text
-            only86: false
-          - name: telegram
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-telegram
-            only86: false
-          - name: terminal
+          - name: sndcpy
             singleapp: false
             base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-terminal
+            dockerfile: dockerfile-kasm-sndcpy
             only86: false
-          - name: thunderbird
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-thunderbird
-            only86: false
-          - name: tor-browser
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-tor-browser
-            only86: false
-          - name: ubuntu-focal-desktop
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-ubuntu-focal-desktop
-            only86: false
-          - name: ubuntu-focal-desktop-vpn
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-ubuntu-focal-desktop-vpn
-            only86: false
-          - name: ubuntu-jammy-desktop
-            singleapp: false
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-ubuntu-jammy-desktop
-            only86: false
-          - name: ubuntu-noble-desktop
-            singleapp: false
-            base: core-ubuntu-noble
-            dockerfile: dockerfile-kasm-ubuntu-noble-desktop
-            only86: false
-          - name: vlc
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-vlc
-            only86: false
-          - name: vs-code
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-vs-code
-            only86: false
-          - name: almalinux-8-desktop
-            singleapp: false
-            base: core-almalinux-8
-            dockerfile: dockerfile-kasm-almalinux-8-desktop
-            only86: false
-          - name: almalinux-9-desktop
-            singleapp: false
-            base: core-almalinux-9
-            dockerfile: dockerfile-kasm-almalinux-9-desktop
-            only86: false
-          - name: alpine-317-desktop
-            singleapp: false
-            base: core-alpine-317
-            dockerfile: dockerfile-kasm-alpine-317-desktop
-            only86: false
-          - name: alpine-318-desktop
-            singleapp: false
-            base: core-alpine-318
-            dockerfile: dockerfile-kasm-alpine-318-desktop
-            only86: false
-          - name: alpine-319-desktop
-            singleapp: false
-            base: core-alpine-319
-            dockerfile: dockerfile-kasm-alpine-319-desktop
-            only86: false
-          - name: alpine-320-desktop
-            singleapp: false
-            base: core-alpine-320
-            dockerfile: dockerfile-kasm-alpine-320-desktop
-            only86: false
-          - name: brave
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-brave
-            only86: false
-          - name: debian-bullseye-desktop
-            singleapp: false
-            base: core-debian-bullseye
-            dockerfile: dockerfile-kasm-debian-bullseye-desktop
-            only86: false
-          - name: debian-bookworm-desktop
-            singleapp: false
-            base: core-debian-bookworm
-            dockerfile: dockerfile-kasm-debian-bookworm-desktop
-            only86: false
-          - name: fedora-37-desktop
-            singleapp: false
-            base: core-fedora-37
-            dockerfile: dockerfile-kasm-fedora-37-desktop
-            only86: false
-          - name: fedora-38-desktop
-            singleapp: false
-            base: core-fedora-38
-            dockerfile: dockerfile-kasm-fedora-38-desktop
-            only86: false
-          - name: fedora-39-desktop
-            singleapp: false
-            base: core-fedora-39
-            dockerfile: dockerfile-kasm-fedora-39-desktop
-            only86: false
-          - name: fedora-40-desktop
-            singleapp: false
-            base: core-fedora-40
-            dockerfile: dockerfile-kasm-fedora-40-desktop
-            only86: false
-          - name: kali-rolling-desktop
-            singleapp: false
-            base: core-kali-rolling
-            dockerfile: dockerfile-kasm-kali-rolling-desktop
-            only86: false
-          - name: maltego
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-maltego
-            only86: false
-          - name: minetest
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-minetest
-            only86: false
-          - name: oracle-9-desktop
-            singleapp: false
-            base: core-oracle-9
-            dockerfile: dockerfile-kasm-oracle-9-desktop
-            only86: false
-          - name: parrotos-6-desktop
-            singleapp: false
-            base: core-parrotos-6
-            dockerfile: dockerfile-kasm-parrotos-6-desktop
-            only86: false
-          - name: retroarch
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-retroarch
-            only86: false
-          - name: rockylinux-8-desktop
-            singleapp: false
-            base: core-rockylinux-8
-            dockerfile: dockerfile-kasm-rockylinux-8-desktop
-            only86: false
-          - name: rockylinux-9-desktop
-            singleapp: false
-            base: core-rockylinux-9
-            dockerfile: dockerfile-kasm-rockylinux-9-desktop
-            only86: false
-          - name: super-tux-kart
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-super-tux-kart
-            only86: false
-          - name: ubuntu-focal-dind
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-ubuntu-focal-dind
-            only86: false
-          - name: ubuntu-focal-dind-rootless
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-ubuntu-focal-dind-rootless
-            only86: false
-          - name: ubuntu-jammy-dind
-            singleapp: false
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-ubuntu-jammy-dind
-            only86: false
-          - name: ubuntu-jammy-dind-rootless
-            singleapp: false
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-ubuntu-jammy-dind-rootless
-            only86: false
-          - name: vivaldi
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-vivaldi
-            only86: false
-          - name: blender
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-blender
-            only86: true
-          - name: centos-7-desktop
-            singleapp: false
-            base: core-centos-7
-            dockerfile: dockerfile-kasm-centos-7-desktop
-            only86: true
-          - name: chrome
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-chrome
-            only86: true
-          - name: desktop
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-desktop
-            only86: true
-          - name: desktop-deluxe
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-desktop-deluxe
-            only86: true
-          - name: discord
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-discord
-          - name: edge
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-edge
-            only86: true
-          - name: hunchly
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-hunchly
-            only86: true
-          - name: insomnia
-            singleapp: true
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-insomnia
-            only86: true
-          - name: only-office
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-only-office
-            only86: true
-          - name: oracle-7-desktop
-            singleapp: false
-            base: core-oracle-7
-            dockerfile: dockerfile-kasm-oracle-7-desktop
-            only86: true
-          - name: kasmos-desktop
-            singleapp: false
-            base: core-kasmos
-            dockerfile: dockerfile-kasmos-desktop
-            only86: true
-          - name: postman
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-postman
-            only86: true
-          - name: remnux-focal-desktop
-            singleapp: false
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-remnux-focal-desktop
-            only86: true
-          - name: signal
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-signal
-            only86: true
-          - name: slack
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-slack
-            only86: true
-          - name: steam
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-steam
-            only86: true
-          - name: tracelabs
-            singleapp: false
-            base: core-kali-rolling
-            dockerfile: dockerfile-kasm-tracelabs
-            only86: true
-          - name: unityhub
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-unityhub
-            only86: true
-          - name: zoom
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-zoom
-            only86: true
-          - name: zsnes
-            singleapp: true
-            base: core-ubuntu-focal
-            dockerfile: dockerfile-kasm-zsnes
-            only86: true
-          - name: forensic-osint
-            singleapp: false
-            base: core-ubuntu-jammy
-            dockerfile: dockerfile-kasm-forensic-osint
-            only86: true
+#          - name: remmina
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-remmina
+#            only86: false
+#          - name: spiderfoot
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-spiderfoot
+#            only86: false
+#          - name: sublime-text
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-sublime-text
+#            only86: false
+#          - name: telegram
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-telegram
+#            only86: false
+#          - name: terminal
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-terminal
+#            only86: false
+#          - name: thunderbird
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-thunderbird
+#            only86: false
+#          - name: tor-browser
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-tor-browser
+#            only86: false
+#          - name: ubuntu-focal-desktop
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-ubuntu-focal-desktop
+#            only86: false
+#          - name: ubuntu-focal-desktop-vpn
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-ubuntu-focal-desktop-vpn
+#            only86: false
+#          - name: ubuntu-jammy-desktop
+#            singleapp: false
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-ubuntu-jammy-desktop
+#            only86: false
+#          - name: ubuntu-noble-desktop
+#            singleapp: false
+#            base: core-ubuntu-noble
+#            dockerfile: dockerfile-kasm-ubuntu-noble-desktop
+#            only86: false
+#          - name: vlc
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-vlc
+#            only86: false
+#          - name: vs-code
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-vs-code
+#            only86: false
+#          - name: almalinux-8-desktop
+#            singleapp: false
+#            base: core-almalinux-8
+#            dockerfile: dockerfile-kasm-almalinux-8-desktop
+#            only86: false
+#          - name: almalinux-9-desktop
+#            singleapp: false
+#            base: core-almalinux-9
+#            dockerfile: dockerfile-kasm-almalinux-9-desktop
+#            only86: false
+#          - name: alpine-317-desktop
+#            singleapp: false
+#            base: core-alpine-317
+#            dockerfile: dockerfile-kasm-alpine-317-desktop
+#            only86: false
+#          - name: alpine-318-desktop
+#            singleapp: false
+#            base: core-alpine-318
+#            dockerfile: dockerfile-kasm-alpine-318-desktop
+#            only86: false
+#          - name: alpine-319-desktop
+#            singleapp: false
+#            base: core-alpine-319
+#            dockerfile: dockerfile-kasm-alpine-319-desktop
+#            only86: false
+#          - name: alpine-320-desktop
+#            singleapp: false
+#            base: core-alpine-320
+#            dockerfile: dockerfile-kasm-alpine-320-desktop
+#            only86: false
+#          - name: brave
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-brave
+#            only86: false
+#          - name: debian-bullseye-desktop
+#            singleapp: false
+#            base: core-debian-bullseye
+#            dockerfile: dockerfile-kasm-debian-bullseye-desktop
+#            only86: false
+#          - name: debian-bookworm-desktop
+#            singleapp: false
+#            base: core-debian-bookworm
+#            dockerfile: dockerfile-kasm-debian-bookworm-desktop
+#            only86: false
+#          - name: fedora-37-desktop
+#            singleapp: false
+#            base: core-fedora-37
+#            dockerfile: dockerfile-kasm-fedora-37-desktop
+#            only86: false
+#          - name: fedora-38-desktop
+#            singleapp: false
+#            base: core-fedora-38
+#            dockerfile: dockerfile-kasm-fedora-38-desktop
+#            only86: false
+#          - name: fedora-39-desktop
+#            singleapp: false
+#            base: core-fedora-39
+#            dockerfile: dockerfile-kasm-fedora-39-desktop
+#            only86: false
+#          - name: fedora-40-desktop
+#            singleapp: false
+#            base: core-fedora-40
+#            dockerfile: dockerfile-kasm-fedora-40-desktop
+#            only86: false
+#          - name: kali-rolling-desktop
+#            singleapp: false
+#            base: core-kali-rolling
+#            dockerfile: dockerfile-kasm-kali-rolling-desktop
+#            only86: false
+#          - name: maltego
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-maltego
+#            only86: false
+#          - name: minetest
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-minetest
+#            only86: false
+#          - name: oracle-9-desktop
+#            singleapp: false
+#            base: core-oracle-9
+#            dockerfile: dockerfile-kasm-oracle-9-desktop
+#            only86: false
+#          - name: parrotos-6-desktop
+#            singleapp: false
+#            base: core-parrotos-6
+#            dockerfile: dockerfile-kasm-parrotos-6-desktop
+#            only86: false
+#          - name: retroarch
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-retroarch
+#            only86: false
+#          - name: rockylinux-8-desktop
+#            singleapp: false
+#            base: core-rockylinux-8
+#            dockerfile: dockerfile-kasm-rockylinux-8-desktop
+#            only86: false
+#          - name: rockylinux-9-desktop
+#            singleapp: false
+#            base: core-rockylinux-9
+#            dockerfile: dockerfile-kasm-rockylinux-9-desktop
+#            only86: false
+#          - name: super-tux-kart
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-super-tux-kart
+#            only86: false
+#          - name: ubuntu-focal-dind
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-ubuntu-focal-dind
+#            only86: false
+#          - name: ubuntu-focal-dind-rootless
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-ubuntu-focal-dind-rootless
+#            only86: false
+#          - name: ubuntu-jammy-dind
+#            singleapp: false
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-ubuntu-jammy-dind
+#            only86: false
+#          - name: ubuntu-jammy-dind-rootless
+#            singleapp: false
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-ubuntu-jammy-dind-rootless
+#            only86: false
+#          - name: vivaldi
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-vivaldi
+#            only86: false
+#          - name: blender
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-blender
+#            only86: true
+#          - name: centos-7-desktop
+#            singleapp: false
+#            base: core-centos-7
+#            dockerfile: dockerfile-kasm-centos-7-desktop
+#            only86: true
+#          - name: chrome
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-chrome
+#            only86: true
+#          - name: desktop
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-desktop
+#            only86: true
+#          - name: desktop-deluxe
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-desktop-deluxe
+#            only86: true
+#          - name: discord
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-discord
+#          - name: edge
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-edge
+#            only86: true
+#          - name: hunchly
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-hunchly
+#            only86: true
+#          - name: insomnia
+#            singleapp: true
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-insomnia
+#            only86: true
+#          - name: only-office
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-only-office
+#            only86: true
+#          - name: oracle-7-desktop
+#            singleapp: false
+#            base: core-oracle-7
+#            dockerfile: dockerfile-kasm-oracle-7-desktop
+#            only86: true
+#          - name: kasmos-desktop
+#            singleapp: false
+#            base: core-kasmos
+#            dockerfile: dockerfile-kasmos-desktop
+#            only86: true
+#          - name: postman
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-postman
+#            only86: true
+#          - name: remnux-focal-desktop
+#            singleapp: false
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-remnux-focal-desktop
+#            only86: true
+#          - name: signal
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-signal
+#            only86: true
+#          - name: slack
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-slack
+#            only86: true
+#          - name: steam
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-steam
+#            only86: true
+#          - name: tracelabs
+#            singleapp: false
+#            base: core-kali-rolling
+#            dockerfile: dockerfile-kasm-tracelabs
+#            only86: true
+#          - name: unityhub
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-unityhub
+#            only86: true
+#          - name: zoom
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-zoom
+#            only86: true
+#          - name: zsnes
+#            singleapp: true
+#            base: core-ubuntu-focal
+#            dockerfile: dockerfile-kasm-zsnes
+#            only86: true
+#          - name: forensic-osint
+#            singleapp: false
+#            base: core-ubuntu-jammy
+#            dockerfile: dockerfile-kasm-forensic-osint
+#            only86: true
 
     runs-on: ubuntu-latest
     permissions:
