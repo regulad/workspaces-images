@@ -9,7 +9,7 @@ apt-get install -y  android-tools-adb android-tools-fastboot \
                     gcc git pkg-config meson ninja-build libsdl2-dev \
                     libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
                     libswresample-dev libusb-1.0-0 libusb-1.0-0-dev jq gettext-base \
-                    xfce4-clipman xfce4-clipman-plugin unzip coreutils
+                    xfce4-clipman xfce4-clipman-plugin unzip coreutils vlc
 
 mkdir -p /opt/
 cd /opt/
@@ -53,13 +53,36 @@ rm -rf "$TEMP_DIR"
 
 echo "Successfully downloaded and placed scrcpy-server.jar in $DESTINATION_FILE"
 
-
 git clone https://github.com/regulad/scrcpy
 cd scrcpy
 git checkout feature/websocket-v1.19.x
 
-BUILDDIR=/opt/scrcpy/build
+BUILD_DIR=/opt/scrcpy/build-auto
 
-meson "$BUILDDIR" --buildtype release --strip -Db_lto=true -Dprebuilt_server=$DESTINATION_FILE
-ninja -C "$BUILDDIR"
-ninja -C "$BUILDDIR" install
+meson "$BUILD_DIR" --buildtype release --strip -Db_lto=true -Dprebuilt_server=$DESTINATION_FILE
+ninja -C "$BUILD_DIR"
+ninja -C "$BUILD_DIR" install
+
+# now we need to install sndcopy as well
+cd /opt/
+
+# Define the URL and destination directory with SNDCOPY_ prefix for environment variables
+SNDCPY_DOWNLOAD_URL="https://github.com/rom1v/sndcpy/releases/download/v1.1/sndcpy-v1.1.zip"
+SNDCPY_DESTINATION_DIR="/opt/sndcpy"
+SNDCPY_TEMP_DIR=$(mktemp -d)
+
+# Ensure the destination directory exists
+mkdir -p "$SNDCPY_DESTINATION_DIR"
+
+# Download the zip file to the temporary directory
+echo "Downloading sndcpy.zip..."
+curl -L "$SNDCPY_DOWNLOAD_URL" -o "$SNDCPY_TEMP_DIR/sndcpy.zip"
+
+# Unzip the file to the destination directory
+echo "Extracting sndcpy.zip to $SNDCPY_DESTINATION_DIR..."
+unzip -q "$SNDCPY_TEMP_DIR/sndcpy.zip" -d "$SNDCPY_DESTINATION_DIR"
+
+# Clean up the temporary directory
+rm -rf "$SNDCPY_TEMP_DIR"
+
+echo "sndcpy has been successfully downloaded and extracted to $SNDCPY_DESTINATION_DIR"

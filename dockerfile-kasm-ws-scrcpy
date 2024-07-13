@@ -16,7 +16,7 @@ COPY ./src/ubuntu/install/scrcpy/vnc_startup.sh $STARTUPDIR/vnc_startup.sh
 COPY ./src/ubuntu/install/scrcpy $INST_SCRIPTS/scrcpy/
 RUN bash $INST_SCRIPTS/scrcpy/install_ws_scrcpy.sh  && rm -rf $INST_SCRIPTS/scrcpy/
 
-COPY ./src/ubuntu/install/scrcpy/custom_startup.sh $STARTUPDIR/custom_startup.sh
+COPY ./src/ubuntu/install/scrcpy/custom_ws_startup.sh $STARTUPDIR/custom_startup.sh
 RUN chmod +x $STARTUPDIR/custom_startup.sh
 RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
