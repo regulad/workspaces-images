@@ -72,9 +72,9 @@ start_scrcpy() {
   window_y=$(($SCRCPY_HEIGHT / 2))
   scrcpy_command="scrcpy -s \"$ADB_DEVICE\" --window-borderless --window-width=${SCRCPY_WIDTH} --window-height=${SCRCPY_HEIGHT} --window-x=${window_x} --window-y=${window_y} --shortcut-mod=lalt --max-fps=${SCRCPY_FPS}"
   # https://github.com/rom1v/sndcpy
-  sndcpy_command="bash /opt/sndcpy/sndcopy \"${ADB_DEVICE}\""
+  sndcpy_command="bash /opt/sndcpy/sndcpy \"${ADB_DEVICE}\""
 
-  export SNDCPY_APK=/opt/sndcopy/sndcpy.apk
+  export SNDCPY_APK=/opt/sndcpy/sndcpy.apk
 
   start_android  # Ensure that the device is connected, reconnect if necessary
 

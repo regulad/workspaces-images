@@ -63,10 +63,10 @@ meson "$BUILD_DIR" --buildtype release --strip -Db_lto=true -Dprebuilt_server=$D
 ninja -C "$BUILD_DIR"
 ninja -C "$BUILD_DIR" install
 
-# now we need to install sndcopy as well
+# now we need to install sndcpy as well
 cd /opt/
 
-# Define the URL and destination directory with SNDCOPY_ prefix for environment variables
+# Define the URL and destination directory with SNDCPY_ prefix for environment variables
 SNDCPY_DOWNLOAD_URL="https://github.com/rom1v/sndcpy/releases/download/v1.1/sndcpy-v1.1.zip"
 SNDCPY_DESTINATION_DIR="/opt/sndcpy"
 SNDCPY_TEMP_DIR=$(mktemp -d)
